@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - KutumbInfo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon2.png" type="image/x-icon">
+    <link rel="preload" href="navbar_root.html" as="fetch" crossorigin="anonymous">
+    <script src="navigation.js" defer></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        .sitemap-hero {
+            background: linear-gradient(135deg, #192939 0%, #224263 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .sitemap-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .sitemap-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sitemap-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .sitemap-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .sitemap-section h2 {
+            color: #192939;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #6eaf2a;
+            position: relative;
+        }
+        
+        .sitemap-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 60px;
+            height: 2px;
+            background-color: #192939;
+        }
+        
+        .sitemap-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .sitemap-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid #6eaf2a;
+        }
+        
+        .sitemap-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .sitemap-card h3 {
+            color: #192939;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sitemap-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 20px;
+            background-color: #6eaf2a;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        
+        .sitemap-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sitemap-links li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .sitemap-links li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #6eaf2a;
+            font-weight: bold;
+        }
+        
+        .sitemap-links a {
+            color: #4a4a4a;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .sitemap-links a:hover {
+            color: #6eaf2a;
+            padding-left: 5px;
+        }
+        
+        .direct-links {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px 30px;
+            margin-top: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .quick-nav a {
+            background-color: #f5f5f5;
+            color: #192939;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-nav a:hover {
+            background-color: #6eaf2a;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .sitemap-hero {
+                padding: 60px 20px;
+                margin-top: 60px;
+            }
+            
+            .sitemap-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .sitemap-section {
+                padding: 30px 20px;
+            }
+            
+            .sitemap-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .quick-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .quick-nav a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar_root-placeholder"></div>
+
+    <!-- Hero Section -->
+    <div class="sitemap-hero">
+        <h1>Sitemap</h1>
+        <p>Explore the key sections of KutumbInfo to find exactly what you're looking for.</p>
+    </div>
+
+    <div class="sitemap-container">
+        <!-- Quick Navigation Links -->
+        <div class="direct-links">
+            <h3>Quick Navigation</h3>
+            <div class="quick-nav">
+                <a href="#main-pages">Main Pages</a>
+                <a href="#services">Services</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#products">Products</a>
+                <a href="#ventures">Associate Ventures</a>
+                <a href="#legal">Legal Information</a>
+            </div>
+        </div>
+
+        <!-- Main Pages Section -->
+        <div id="main-pages" class="sitemap-section">
+            <h2>Main Pages</h2>
+            <div class="sitemap-list">
+                <div class="sitemap-card">
+                    <h3>Home</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="index.html">Homepage</a></li>
+                        <li><a href="why_kutumbinfo.html">Why KutumbInfo</a></li>
+                        <li><a href="work_with_us.html">Work With Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sitemap-card">
+                    <h3>Contact</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="work_with_us.html#contact-form">Contact Form</a></li>
+                        <li><a href="mailto:connect@kutumbinfo.com">Email Us</a></li>
+                        <li><a href="tel:+918956118607">Call Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div id="services" class="sitemap-section">
+            <h2>Services</h2>
+            <div class="sitemap-list">
+                <div class="sitemap-card">
+                    <h3>Our Services</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="Services/web_dev.html">Web Development</a></li>
+                        <li><a href="Services/mob_app.html">Mobile Application Development</a></li>
+                        <li><a href="Services/software_dev.html">Custom Software Development</a></li>
+                        <li><a href="Services/ui_ux.html">UI/UX Design</a></li>
+                        <li><a href="Services/api_service.html">API Development</a></li>
+                        <li><a href="Services/maintenance.html">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expertise Section -->
+        <div id="expertise" class="sitemap-section">
+            <h2>Expertise</h2>
+            <div class="sitemap-list">
+                <div class="sitemap-card">
+                    <h3>Our Technologies</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="Expertise/angular.html">Angular Development</a></li>
+                        <li><a href="Expertise/react.html">React Development</a></li>
+                        <li><a href="Expertise/vue.html">Vue.js Development</a></li>
+                        <li><a href="Expertise/wordpress.html">WordPress Development</a></li>
+                        <li><a href="Expertise/flutter.html">Flutter Development</a></li>
+                        <li><a href="Expertise/java.html">Java Development</a></li>
+                        <li><a href="Expertise/nodejs.html">Node.js Development</a></li>
+                        <li><a href="Expertise/php.html">PHP Development</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div id="products" class="sitemap-section">
+            <h2>Products</h2>
+            <div class="sitemap-list">
+                <div class="sitemap-card">
+                    <h3>FinTech Products</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="Products/KYCPLUS.html">KYC Plus</a></li>
+                        <li><a href="Products/AZAPI.html">AZAPI</a></li>
+                        <li><a href="Products/RPACPC.html">RPACPC</a></li>
+                        <li><a href="Products/wpx_nexus.html">WPS Nexus</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sitemap-card">
+                    <h3>Non-FinTech Solutions</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="Products/non-fintech.html">Non-FinTech Products</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Associate Ventures Section -->
+        <div id="ventures" class="sitemap-section">
+            <h2>Associate Ventures</h2>
+            <div class="sitemap-list">
+                <div class="sitemap-card">
+                    <h3>Our Partners</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="https://azlogics.com/" target="_blank">Azlogics - Technology solutions and services</a></li>
+                        <li><a href="https://www.webakruti.com/" target="_blank">Webakruti - Digital innovation and software development</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Information Section -->
+        <div id="legal" class="sitemap-section">
+            <h2>Legal Information</h2>
+            <div class="sitemap-list">
+                <div class="sitemap-card">
+                    <h3>Legal Documents</h3>
+                    <ul class="sitemap-links">
+                        <li><a href="terms_and_conditions.html#terms">Terms and Conditions</a></li>
+                        <li><a href="terms_and_conditions.html#privacy">Privacy Policy</a></li>
+                        <li><a href="terms_and_conditions.html#refunds">Refund Policy</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div id="footer-placeholder"></div>
+    <script>
+        // Load footer content
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Load navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Highlight active link in quick navigation
+            const sections = document.querySelectorAll('.sitemap-section');
+            const quickNavLinks = document.querySelectorAll('.quick-nav a');
+            
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.5
+                );
+            }
+            
+            function highlightActiveSection() {
+                let activeSection = null;
+                
+                sections.forEach(section => {
+                    if (isInViewport(section)) {
+                        if (!activeSection) activeSection = section;
+                    }
+                });
+                
+                if (activeSection) {
+                    const activeSectionId = activeSection.getAttribute('id');
+                    quickNavLinks.forEach(link => {
+                        const href = link.getAttribute('href').replace('#', '');
+                        if (href === activeSectionId) {
+                            link.style.backgroundColor = '#6eaf2a';
+                            link.style.color = 'white';
+                        } else {
+                            link.style.backgroundColor = '#f5f5f5';
+                            link.style.color = '#192939';
+                        }
+                    });
+                }
+            }
+            
+            // Update on scroll
+            window.addEventListener('scroll', highlightActiveSection);
+            
+            // Initial highlight
+            highlightActiveSection();
+        });
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html> 
